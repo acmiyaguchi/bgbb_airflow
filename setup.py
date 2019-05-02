@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from setuptools import setup, find_packages
+import re
 
 
 def read_version():
@@ -21,9 +22,7 @@ def read_version():
 
 verstr = read_version()
 
-test_deps = [
-    "pytest",
-]
+test_deps = ["pytest"]
 
 extras = {"test": test_deps}
 
