@@ -2,7 +2,7 @@ from typing import Tuple
 
 import click
 import pandas as pd
-from bgbb import BGBB
+from bgbb import BGBB, __version__
 from bgbb.sql.sql_utils import (
     S3_DAY_FMT_DASH,
     reduce_rec_freq_spk,
@@ -108,6 +108,7 @@ def main(
     bucket,
     prefix,
 ):
+    print('Running param fitting. Version {}'.format(__version__))
     spark = SparkSession.builder.getOrCreate()
     ho_start = pd.to_datetime(submission_date).strftime(S3_DAY_FMT_DASH)
 
